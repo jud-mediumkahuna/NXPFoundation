@@ -9,6 +9,7 @@ Executable memory is divided into three files:
 1) The RTOS and drivers, extentions, etc (that don't change often, we pray).
 2) The startup program/shell.
 3) The application.
+
 Typically, only the application is changing and getting downloaded all the time.
 I'm praying/assuming that application executable images are relocatable.
 The start up program starts after the rtos comes up and configures itself. It looks for new files that are new versions of the three excutable files. If it's the op sys or the startup, it copies (flashes) them over the existing and deletes the new files. If there's a new application program, it deletes the old one, makes sure the new one is contiguous, renames it, and sets a pointer to the new application file.
